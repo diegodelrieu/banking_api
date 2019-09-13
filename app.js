@@ -13,7 +13,7 @@ axios.post(`https://sync.bankin.com/v2/authenticate?email=${clientEmail}&passwor
     const token = response.access_token
     axios.get(`https://sync.bankin.com/v2/accounts?limit=10&client_id=${clientID}&client_secret=${clientSecret}`, headers, token)
     .then(function (response){
-      const accounts = response
+      const accounts = response.resources
       let totalBalance = 0
       accounts.forEach((account) => {
         balance += account.balance
