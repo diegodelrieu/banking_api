@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const axios = require('axios');
 
 const clientEmail = "user2@mail.com"
@@ -21,6 +20,12 @@ axios.post(`https://sync.bankin.com/v2/authenticate?email=${clientEmail}&passwor
       })
       return totalBalance
     })
+    .catch(function (error) {
+      console.log(error);
+    });
   })
+  .catch(function (error) {
+    console.log(error);
+  });
 ;
 
