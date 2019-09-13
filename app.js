@@ -40,4 +40,4 @@ function getBalances(token) {
 }
 
 login()
-getBalances()
+getBalances(token)
