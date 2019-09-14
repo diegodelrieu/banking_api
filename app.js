@@ -6,7 +6,7 @@ const clientID = '5ba0203954494c0182aa67e7c4f4d124';
 const clientSecret = 'QFKYNQUkPxpIyOJMAamtOcc0vPOmwE4hfVPtodZcCob0RIPp9Sv6pGFkHKDYwzy6';
 const headers = { 'Bankin-version': '2018-06-15' };
 
-async function authenticateAndGetBalances() {
+function authenticateAndGetBalances() {
   let token = '';
   // authenticate
   axios.post(`https://sync.bankin.com/v2/authenticate?email=${clientEmail}&password=${clientPassword}&client_id=${clientID}&client_secret=${clientSecret}`, {}, { headers })
