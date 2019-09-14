@@ -1,4 +1,0 @@
-const app = require('../app');
-const debug = require('debug')('banking:server');
-const http = require('http');
-
