@@ -1,9 +1,9 @@
 const axios = require('axios');
 
-const clientEmail = 'john.doe@email.com';
-const clientPassword = 'a!StrongP455word';
-const clientID = '5ba0203954494c0182aa67e7c4f4d124';
-const clientSecret = 'QFKYNQUkPxpIyOJMAamtOcc0vPOmwE4hfVPtodZcCob0RIPp9Sv6pGFkHKDYwzy6';
+const clientEmail = 'user2@mail.com';
+const clientPassword = 'a!Strongp#assword2';
+const clientID = '775683bc70d94beaa8044c81b2f16006';
+const clientSecret = 'sMgdYUzUPpo1DxbR67qP2ZbuTmU7H9gikvWPigDnQro9fk0PsRcb4EvI0iRheAJr';
 const headers = { 'Bankin-version': '2018-06-15' };
 
 function authenticateAndGetBalances() {
@@ -14,7 +14,7 @@ function authenticateAndGetBalances() {
       token = response.data.access_token;
       headers.Authorization = `Bearer ${token}`;
       // Access accounts
-      return axios.get(`https://sync.bankin.com/v2/accounts?limit=10&client_id=${clientID}&client_secret=${clientSecret}`, { headers });
+      axios.get(`https://sync.bankin.com/v2/accounts?limit=10&client_id=${clientID}&client_secret=${clientSecret}`, { headers });
     })
     .then((response) => {
       const accounts = response.data.resources;
@@ -22,6 +22,7 @@ function authenticateAndGetBalances() {
       accounts.forEach((account) => {
         totalBalance += account.balance;
       });
+      console.log(totalBalance)
       return totalBalance;
     })
     .catch((error) => {
